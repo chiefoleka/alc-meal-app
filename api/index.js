@@ -1,17 +1,9 @@
 import express from 'express';
-import MealsSerivce from './services/MealsService';
+import mealsRoute from './routes/mealsRoute';
 
-// Set up the express app
 const app = express();
-const mealsService = new MealsSerivce()
 
-app.get('/api/v1/meals', (req, res) => {
-  res.status(200).send(mealsService.getAll());
-});
-
-app.get('/api/v1/meals/:id', (req, res) => {
-  res.status(200).send(mealsService.get(req.params.id));
-});
+app.use('/api/v1/meals', mealsRoute);
 
 const PORT = 8080;
 app.listen(PORT);
