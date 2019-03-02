@@ -3,15 +3,33 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "test": "mocha",
+    "cover": "istanbul cover _mocha",
+    "build": "babel models routes services index.js --out-dir dist",
+    "start": "nodemon --exec babel-node index",
+    "serve": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "chai": "^1.9.2",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "istanbul": "^0.2.16",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10",
+    "sinon": "^1.8.2"
+  },
   "description": ""
 }

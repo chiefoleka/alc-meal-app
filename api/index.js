@@ -1,14 +1,12 @@
-let express = require('express');
+import express from 'express';
+import dotenv from 'dotenv';
+import mealsRoute from './routes/mealsRoute';
 
-// Set up the express app
+dotenv.config();
+
 const app = express();
 
-const PORT = 8080;
+app.use('/api/v1/meals', mealsRoute);
 
-app.get('/home', (req, res) => {
-  res.status(200).send("Home url")
-});
-
-app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}`)
-});
+const PORT = process.env.PORT || 8080;
+app.listen(PORT);

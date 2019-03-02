@@ -1,0 +1,1 @@
+web: cd api && npm run serve
