@@ -5,13 +5,16 @@
   "scripts": {
     "test": "mocha",
     "cover": "istanbul cover _mocha",
-    "build": "babel --presets env -d lib/ src",
-    "start": "nodemon --exec babel-node index"
+    "build": "babel models routes services index.js --out-dir dist",
+    "start": "nodemon --exec babel-node index",
+    "serve": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
